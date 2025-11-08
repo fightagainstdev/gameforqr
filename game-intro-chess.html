@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>火球棋 - 游戏介绍</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Exo+2:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- 音乐控制 -->
+        <div class="music-control">
+            <span class="music-label">BGM</span>
+            <label class="toggle-switch">
+                <input type="checkbox" id="bgm-toggle">
+                <span class="toggle-slider"></span>
+            </label>
+        </div>
+        <!-- 背景特效 -->
+        <div class="background-effects">
+            <div class="particles"></div>
+            <div class="grid-lines"></div>
+        </div>
+
+        <!-- 导航栏 -->
+        <nav class="game-nav">
+            <a href="games.html" class="nav-btn">
+                <span>返回游戏列表</span>
+            </a>
+            <h1 class="game-title">游戏介绍</h1>
+        </nav>
+
+        <!-- 游戏介绍内容 -->
+        <main class="game-intro-content">
+            <div class="intro-layout">
+                <!-- 左侧游戏信息 -->
+                <div class="game-info">
+                    <!-- 游戏图片 -->
+                    <div class="intro-game-image">
+                        <img src="chess.png" alt="火球棋">
+                    </div>
+                    
+                    <!-- 游戏名称 -->
+                    <h1 class="intro-game-title">火球棋</h1>
+                    
+                    <!-- 游戏介绍 -->
+                    <div class="game-description">
+                        <p>《火球棋》是一款回合制策略游戏，你将扮演一位法师，守护你的小塔。</p>
+                        <p>这款游戏嵌入了一个小型神经网络用于字符识别（约 2.5kb）。整个游戏的开发初衷是为了编写一个轻量级的神经网络运行时……因此，游戏的操作完全依赖于绘制符号来移动 :)</p>
+                    </div>
+
+                    <!-- 操作方式 -->
+                    <div class="controls-section">
+                        <h2>操作说明</h2>
+                        
+                        <!-- 通用操作 -->
+                        <div class="control-group">
+                            <h3>通用操作</h3>
+                            <p>在网格上绘制（鼠标或触摸）符号来控制符文石移动。</p>
+                            <div class="draw-indicator">
+                                <div class="draw-icon">✏️</div>
+                                <p>绘制符号移动</p>
+                            </div>
+                        </div>
+
+                        <!-- 移动控制 -->
+                        <div class="control-group">
+                            <h3>移动控制</h3>
+                            <p>使用屏幕左半部分上下移动。</p>
+                            <p>使用屏幕右半部分左右移动。</p>
+                            <div class="screen-layout">
+                                <div class="screen-half left-half">
+                                    <div class="screen-icon">⬆️⬇️</div>
+                                    <p>左半部分：上下移动</p>
+                                </div>
+                                <div class="screen-half right-half">
+                                    <div class="screen-icon">⬅️➡️</div>
+                                    <p>右半部分：左右移动</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 法术系统 -->
+                        <div class="control-group">
+                            <h3>法术系统</h3>
+                            <p>穿过能量球落地时会释放法术。</p>
+                            <p>能量球的颜色决定法术类型。</p>
+                            <p>能量球的形状决定攻击模式。</p>
+                            <div class="energy-ball-indicator">
+                                <div class="energy-icon">🔴🟢🔵</div>
+                                <p>颜色决定法术类型</p>
+                            </div>
+                            <div class="energy-ball-indicator">
+                                <div class="energy-icon">🔺🔻🔶</div>
+                                <p>形状决定攻击模式</p>
+                            </div>
+                        </div>
+
+                        <!-- 游戏目标 -->
+                        <div class="game-objective">
+                            <h3>游戏目标</h3>
+                            <p>尽可能多地击败敌人。祝你好运！</p>
+                            <div class="enemy-indicator">
+                                <div class="enemy-icon">👹</div>
+                                <p>击败敌人获得胜利</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 右侧开始游戏按钮 -->
+                <div class="start-game-section">
+                    <a href="https://fightagainstdev.github.io/qrchess" target="_blank" class="start-game-btn">
+                        <span class="btn-text">开始游戏</span>
+                        <div class="btn-glow"></div>
+                    </a>
+                </div>
+            </div>
+        </main>
+
+        <!-- 页脚 -->
+        <footer class="footer">
+            <p>&copy; 2025 Lumin Game Platform. All rights reserved.</p>
+            <p>商业合作email +zhegeshijietailuan@126.com</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>游戏选择 - Lumin</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Exo+2:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- 音乐控制 -->
+        <div class="music-control">
+            <span class="music-label">BGM</span>
+            <label class="toggle-switch">
+                <input type="checkbox" id="bgm-toggle">
+                <span class="toggle-slider"></span>
+            </label>
+        </div>
+        
+        <!-- 背景特效 -->
+        <div class="background-effects">
+            <div class="particles"></div>
+            <div class="grid-lines"></div>
+        </div>
+
+        <!-- 导航栏 -->
+        <nav class="game-nav">
+            <a href="index.html" class="nav-btn">
+                <span>返回首页</span>
+            </a>
+            <h1 class="game-title">游戏选择</h1>
+        </nav>
+
+        <!-- 游戏列表 -->
+        <main class="games-content">
+            <div class="games-grid">
+                <!-- 游戏卡片 1 - 曲睿爱猫 -->
+                <div class="game-card">
+                    <div class="game-image-container">
+                        <img src="cool.png" alt="曲睿爱猫" class="game-image">
+                    </div>
+                    <h3 class="game-name">曲睿爱猫</h3>
+                    <p class="platform-support">手机、电脑</p>
+                    <button class="play-btn" onclick="window.location.href='game-intro.html'">
+                        查看详情
+                    </button>
+                </div>
+
+                <!-- 游戏卡片 2 - 复仇之猫 -->
+                <div class="game-card">
+                    <div class="game-image-container">
+                        <img src="revenge.png" alt="复仇之猫" class="game-image">
+                    </div>
+                    <h3 class="game-name">复仇之猫</h3>
+                    <p class="platform-support">手机、电脑</p>
+                    <button class="play-btn" onclick="window.location.href='game-intro-revenge.html'">
+                        查看详情
+                    </button>
+                </div>
+
+                <!-- 游戏卡片 3 - 数学之猫 -->
+                <div class="game-card">
+                    <div class="game-image-container">
+                        <img src="number.png" alt="数学之猫" class="game-image">
+                    </div>
+                    <h3 class="game-name">数学之猫</h3>
+                    <p class="platform-support">手机、电脑</p>
+                    <button class="play-btn" onclick="window.location.href='game-intro-number.html'">
+                        查看详情
+                    </button>
+                </div>
+
+                <!-- 游戏卡片 4 - 像素之猫 -->
+                <div class="game-card">
+                    <div class="game-image-container">
+                        <img src="pixel.png" alt="像素之猫" class="game-image">
+                    </div>
+                    <h3 class="game-name">像素之猫</h3>
+                    <p class="platform-support">电脑</p>
+                    <button class="play-btn" onclick="window.location.href='game-intro-pixel.html'">
+                        查看详情
+                    </button>
+                </div>
+
+                <!-- 游戏卡片 5 - 摇晃之猫 -->
+                <div class="game-card">
+                    <div class="game-image-container">
+                        <img src="swing.png" alt="摇晃之猫" class="game-image">
+                    </div>
+                    <h3 class="game-name">摇晃之猫</h3>
+                    <p class="platform-support">手机、电脑</p>
+                    <button class="play-btn" onclick="window.location.href='game-intro-swing.html'">
+                        查看详情
+                    </button>
+                </div>
+
+                <!-- 游戏卡片 6 - 直升机体验 -->
+                <div class="game-card">
+                    <div class="game-image-container">
+                        <img src="plane.png" alt="直升机体验" class="game-image">
+                    </div>
+                    <h3 class="game-name">直升机体验</h3>
+                    <p class="platform-support">手机、电脑</p>
+                    <button class="play-btn" onclick="window.location.href='game-intro-plane.html'">
+                        查看详情
+                    </button>
+                </div>
+
+                <!-- 游戏卡片 7 - 火球棋 -->
+                <div class="game-card">
+                    <div class="game-image-container">
+                        <img src="chess.png" alt="火球棋" class="game-image">
+                    </div>
+                    <h3 class="game-name">火球棋</h3>
+                    <p class="platform-support">手机、电脑</p>
+                    <button class="play-btn" onclick="window.location.href='game-intro-chess.html'">
+                        查看详情
+                    </button>
+                </div>
+
+                <!-- 游戏卡片 8 - 猫咪团聚 -->
+                <div class="game-card">
+                    <div class="game-image-container">
+                        <img src="gather.png" alt="猫咪团聚" class="game-image">
+                    </div>
+                    <h3 class="game-name">猫咪团聚</h3>
+                    <p class="platform-support">手机、电脑</p>
+                    <button class="play-btn" onclick="window.location.href='game-intro-gather.html'">
+                        查看详情
+                    </button>
+                </div>
+
+                <!-- 游戏卡片 9 - 猫式扫雷 -->
+                <div class="game-card">
+                    <div class="game-image-container">
+                        <img src="block.png" alt="猫式扫雷" class="game-image">
+                    </div>
+                    <h3 class="game-name">猫式扫雷</h3>
+                    <p class="platform-support">手机、电脑</p>
+                    <button class="play-btn" onclick="window.location.href='game-intro-block.html'">
+                        查看详情
+                    </button>
+                </div>
+            </div>
+        </main>
+
+        <!-- 页脚 -->
+        <footer class="footer">
+            <p>&copy; 2025 Lumin Game Platform. All rights reserved.</p>
+            <p>商业合作email +zhegeshijietailuan@126.com</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

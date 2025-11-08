@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>像素之猫 - 游戏介绍</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Exo+2:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- 音乐控制 -->
+        <div class="music-control">
+            <span class="music-label">BGM</span>
+            <label class="toggle-switch">
+                <input type="checkbox" id="bgm-toggle">
+                <span class="toggle-slider"></span>
+            </label>
+        </div>
+        <!-- 背景特效 -->
+        <div class="background-effects">
+            <div class="particles"></div>
+            <div class="grid-lines"></div>
+        </div>
+
+        <!-- 导航栏 -->
+        <nav class="game-nav">
+            <a href="games.html" class="nav-btn">
+                <span>返回游戏列表</span>
+            </a>
+            <h1 class="game-title">游戏介绍</h1>
+        </nav>
+
+        <!-- 游戏介绍内容 -->
+        <main class="game-intro-content">
+            <div class="intro-layout">
+                <!-- 左侧游戏信息 -->
+                <div class="game-info">
+                    <!-- 游戏图片 -->
+                    <div class="intro-game-image">
+                        <img src="pixel.png" alt="像素之猫">
+                    </div>
+                    
+                    <!-- 游戏名称 -->
+                    <h1 class="intro-game-title">像素之猫</h1>
+                    
+                    <!-- 游戏介绍 -->
+                    <div class="game-description">
+                        <p>像素之猫是一款短篇冒险游戏。季节更迭，你的黑猫们也失踪了。🌒🐈‍⬛ 揭开季节的力量，找回你的猫咪吧！</p>
+                    </div>
+
+                    <!-- 操作方式 -->
+                    <div class="controls-section">
+                        <h2>🎮 操作</h2>
+                        
+                        <!-- 电脑端操作 -->
+                        <div class="control-group">
+                            <h3>电脑端</h3>
+                            <p>移动：↑ ← ↓ → 或 W A S D 或 Z Q S D</p>
+                            <div class="keyboard-controls">
+                                <div class="key-row">
+                                    <div class="key key-w">W</div>
+                                    <div class="key key-z">Z</div>
+                                </div>
+                                <div class="key-row">
+                                    <div class="key key-a">A</div>
+                                    <div class="key key-s">S</div>
+                                    <div class="key key-d">D</div>
+                                    <div class="key key-q">Q</div>
+                                </div>
+                                <div class="key-row">
+                                    <div class="key key-up">↑</div>
+                                </div>
+                                <div class="key-row">
+                                    <div class="key key-left">←</div>
+                                    <div class="key key-down">↓</div>
+                                    <div class="key key-right">→</div>
+                                </div>
+                            </div>
+                            <p>释放火球烧毁灌木丛并击败敌人：空格键</p>
+                            <div class="keyboard-controls">
+                                <div class="key-row">
+                                    <div class="key key-space">空格键</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 季节系统 -->
+                    <div class="season-section">
+                        <h2>🍂 季节改变世界</h2>
+                        
+                        <div class="season-group">
+                            <h3>❄️ 冬季</h3>
+                            <p>大地被白雪覆盖，但冰封的水面可以行走。</p>
+                        </div>
+
+                        <div class="season-group">
+                            <h3>🌞 夏季</h3>
+                            <p>根茎藤蔓生长，你可以攀爬。</p>
+                        </div>
+
+                        <div class="season-group">
+                            <h3>🍄 秋季</h3>
+                            <p>蘑菇出现，落叶填满空洞。</p>
+                        </div>
+
+                        <div class="season-group">
+                            <h3>🌸 春季</h3>
+                            <p>石花盛开，可以被摧毁。</p>
+                        </div>
+
+                        <p class="season-note">✨ 希望你喜欢这场冒险！</p>
+                    </div>
+                </div>
+
+                <!-- 右侧开始游戏按钮 -->
+                <div class="start-game-section">
+                    <a href="https://fightagainstdev.github.io/qrsavecat" target="_blank" class="start-game-btn">
+                        <span class="btn-text">开始游戏</span>
+                        <div class="btn-glow"></div>
+                    </a>
+                </div>
+            </div>
+        </main>
+
+        <!-- 页脚 -->
+        <footer class="footer">
+            <p>&copy; 2025 Lumin Game Platform. All rights reserved.</p>
+            <p>商业合作email +zhegeshijietailuan@126.com</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

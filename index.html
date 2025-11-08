@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lumin - 游戏平台</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Exo+2:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- 音乐控制 -->
+        <div class="music-control">
+            <span class="music-label">BGM</span>
+            <label class="toggle-switch">
+                <input type="checkbox" id="bgm-toggle">
+                <span class="toggle-slider"></span>
+            </label>
+        </div>
+        
+        <!-- 背景特效 -->
+        <div class="background-effects">
+            <div class="particles"></div>
+            <div class="grid-lines"></div>
+        </div>
+
+        <!-- 主内容区 -->
+        <main class="main-content">
+            <!-- Logo区域 -->
+            <div class="logo-section">
+                <img src="logo.png" alt="Lumin Logo" class="logo">
+            </div>
+
+            <!-- 介绍文字 -->
+            <div class="intro-section">
+                <p class="intro-text">
+                    一个湖南男大（曲某）与他的12名悍将组成的网页游戏游玩平台，我们的每个游戏文件都很小，所以游戏质量欠缺请见谅。并且我们的游戏大多数都支持电脑--手机两平台游玩。这是我们的宗旨。
+                </p>
+            </div>
+
+            <!-- Logo介绍 -->
+            <div class="logo-description">
+                <h2 class="section-title">logo介绍</h2>
+                <p class="description-text">
+                    lumin名字来源于英文单词luminous(明亮的），是希望我们的游戏如同光源，能吸引并点亮玩家，之后图案的类似于灯泡与机械臂的图案是符合名字与游戏平台的设定，点代表我们的小游戏，如一粒尘埃，之后三角形寓意希望我们这个游戏团队能够如三角形般稳定运营下去，点[选择游戏]进入游戏界面，点[游戏不错，捐赠]进入微信捐赠，谢谢支持!
+                </p>
+            </div>
+
+            <!-- 按钮区域 -->
+            <div class="button-section">
+                <a href="games.html" class="btn btn-primary">
+                    <span class="btn-text">选择游戏</span>
+                    <div class="btn-glow"></div>
+                </a>
+                <a href="https://fightagainstdev.github.io/donate" class="btn btn-secondary" target="_blank">
+                    <span class="btn-text">游戏不错，捐赠</span>
+                    <div class="btn-glow"></div>
+                </a>
+            </div>
+        </main>
+
+        <!-- 页脚 -->
+        <footer class="footer">
+            <p>&copy; 2025 Lumin Game Platform. All rights reserved.</p>
+            <p>商业合作email +zhegeshijietailuan@126.com</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

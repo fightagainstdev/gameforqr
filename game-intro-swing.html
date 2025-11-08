@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>摇晃之猫 - 游戏介绍</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Exo+2:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- 音乐控制 -->
+        <div class="music-control">
+            <span class="music-label">BGM</span>
+            <label class="toggle-switch">
+                <input type="checkbox" id="bgm-toggle">
+                <span class="toggle-slider"></span>
+            </label>
+        </div>
+        <!-- 背景特效 -->
+        <div class="background-effects">
+            <div class="particles"></div>
+            <div class="grid-lines"></div>
+        </div>
+
+        <!-- 导航栏 -->
+        <nav class="game-nav">
+            <a href="games.html" class="nav-btn">
+                <span>返回游戏列表</span>
+            </a>
+            <h1 class="game-title">游戏介绍</h1>
+        </nav>
+
+        <!-- 游戏介绍内容 -->
+        <main class="game-intro-content">
+            <div class="intro-layout">
+                <!-- 左侧游戏信息 -->
+                <div class="game-info">
+                    <!-- 游戏图片 -->
+                    <div class="intro-game-image">
+                        <img src="swing.png" alt="摇晃之猫">
+                    </div>
+                    
+                    <!-- 游戏名称 -->
+                    <h1 class="intro-game-title">摇晃之猫</h1>
+                    
+                    <!-- 游戏介绍 -->
+                    <div class="game-description">
+                        <p>一款有趣的物理摆动游戏，控制猫咪抓住红点并荡过去！我们都知道猫咪喜欢红点。</p>
+                    </div>
+
+                    <!-- 操作方式 -->
+                    <div class="controls-section">
+                        <h2>操作方法</h2>
+                        
+                        <!-- 电脑端操作 -->
+                        <div class="control-group">
+                            <h3>电脑端</h3>
+                            <p>点击并按住鼠标即可抓住红点并荡过去</p>
+                            <div class="click-indicator">
+                                <div class="mouse-icon">🖱️</div>
+                                <p>点击并按住</p>
+                            </div>
+                        </div>
+
+                        <!-- 手机端操作 -->
+                        <div class="control-group">
+                            <h3>手机端</h3>
+                            <p>触摸并按住屏幕即可抓住红点并荡过去</p>
+                            <div class="touch-indicator">
+                                <div class="touch-icon">👆</div>
+                                <p>触摸并按住</p>
+                            </div>
+                        </div>
+
+                        <!-- 游戏目标 -->
+                        <div class="game-objective">
+                            <h3>游戏目标</h3>
+                            <p>在每个关卡中收集3个三叶草，即可到达终点</p>
+                            <div class="clover-indicator">
+                                <div class="clover-icon">🍀</div>
+                                <p>收集3个三叶草</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 右侧开始游戏按钮 -->
+                <div class="start-game-section">
+                    <a href="https://fightagainstdev.github.io/qrcatswing" target="_blank" class="start-game-btn">
+                        <span class="btn-text">开始游戏</span>
+                        <div class="btn-glow"></div>
+                    </a>
+                </div>
+            </div>
+        </main>
+
+        <!-- 页脚 -->
+        <footer class="footer">
+            <p>&copy; 2025 Lumin Game Platform. All rights reserved.</p>
+            <p>商业合作email +zhegeshijietailuan@126.com</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

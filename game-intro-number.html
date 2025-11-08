@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数学之猫 - 游戏介绍</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Exo+2:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- 音乐控制 -->
+        <div class="music-control">
+            <span class="music-label">BGM</span>
+            <label class="toggle-switch">
+                <input type="checkbox" id="bgm-toggle">
+                <span class="toggle-slider"></span>
+            </label>
+        </div>
+        <!-- 背景特效 -->
+        <div class="background-effects">
+            <div class="particles"></div>
+            <div class="grid-lines"></div>
+        </div>
+
+        <!-- 导航栏 -->
+        <nav class="game-nav">
+            <a href="games.html" class="nav-btn">
+                <span>返回游戏列表</span>
+            </a>
+            <h1 class="game-title">游戏介绍</h1>
+        </nav>
+
+        <!-- 游戏介绍内容 -->
+        <main class="game-intro-content">
+            <div class="intro-layout">
+                <!-- 左侧游戏信息 -->
+                <div class="game-info">
+                    <!-- 游戏图片 -->
+                    <div class="intro-game-image">
+                        <img src="number.png" alt="数学之猫">
+                    </div>
+                    
+                    <!-- 游戏名称 -->
+                    <h1 class="intro-game-title">数学之猫</h1>
+                    
+                    <!-- 游戏介绍 -->
+                    <div class="game-description">
+                        <p>数学之猫考验你的数学能力和记忆力！简单来说，这是一款需要你选择总和等于指定目标数字的方块的游戏。</p>
+                        <p>如果总和超过目标数字，你会受到惩罚；如果超过目标数字的次数过多，游戏就会结束。所以游戏并不简单，这些黑猫会不断出现并覆盖棋盘的部分区域，这意味着你需要更好地记住每个方块的位置，或者只能靠猜测并承担后果。</p>
+                        <p>偶尔你还可以选择一些奖励效果，这些效果可以彻底改变你获得高分的方式！</p>
+                    </div>
+
+                    <!-- 操作方式 -->
+                    <div class="controls-section">
+                        <h2>操作方式</h2>
+                        
+                        <!-- 电脑端操作 -->
+                        <div class="control-group">
+                            <h3>电脑端</h3>
+                            <p>使用鼠标点击选择方块</p>
+                            <p>使用键盘数字键快速选择</p>
+                            <div class="keyboard-controls">
+                                <div class="key-row">
+                                    <div class="key key-1">1</div>
+                                    <div class="key key-2">2</div>
+                                    <div class="key key-3">3</div>
+                                    <div class="key key-4">4</div>
+                                    <div class="key key-5">5</div>
+                                </div>
+                                <div class="key-row">
+                                    <div class="key key-6">6</div>
+                                    <div class="key key-7">7</div>
+                                    <div class="key key-8">8</div>
+                                    <div class="key key-9">9</div>
+                                    <div class="key key-0">0</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 手机端操作 -->
+                        <div class="control-group">
+                            <h3>手机端</h3>
+                            <p>使用触摸屏点击选择方块</p>
+                            <p>滑动屏幕查看完整棋盘</p>
+                        </div>
+
+                        <p class="platform-note">游戏针对移动设备和电脑进行了优化，让你随时随地都能挑战数学极限！</p>
+                    </div>
+                </div>
+
+                <!-- 右侧开始游戏按钮 -->
+                <div class="start-game-section">
+                    <a href="https://fightagainstdev.github.io/qrnumber" target="_blank" class="start-game-btn">
+                        <span class="btn-text">开始游戏</span>
+                        <div class="btn-glow"></div>
+                    </a>
+                </div>
+            </div>
+        </main>
+
+        <!-- 页脚 -->
+        <footer class="footer">
+            <p>&copy; 2025 Lumin Game Platform. All rights reserved.</p>
+            <p>商业合作email +zhegeshijietailuan@126.com</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

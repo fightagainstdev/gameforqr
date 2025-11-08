@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>猫咪团聚 - 游戏介绍</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Exo+2:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- 音乐控制 -->
+        <div class="music-control">
+            <span class="music-label">BGM</span>
+            <label class="toggle-switch">
+                <input type="checkbox" id="bgm-toggle">
+                <span class="toggle-slider"></span>
+            </label>
+        </div>
+        <!-- 背景特效 -->
+        <div class="background-effects">
+            <div class="particles"></div>
+            <div class="grid-lines"></div>
+        </div>
+
+        <!-- 导航栏 -->
+        <nav class="game-nav">
+            <a href="games.html" class="nav-btn">
+                <span>返回游戏列表</span>
+            </a>
+            <h1 class="game-title">游戏介绍</h1>
+        </nav>
+
+        <!-- 游戏介绍内容 -->
+        <main class="game-intro-content">
+            <div class="intro-layout">
+                <!-- 左侧游戏信息 -->
+                <div class="game-info">
+                    <!-- 游戏图片 -->
+                    <div class="intro-game-image">
+                        <img src="gather.png" alt="猫咪团聚">
+                    </div>
+                    
+                    <!-- 游戏名称 -->
+                    <h1 class="intro-game-title">猫咪团聚</h1>
+                    
+                    <!-- 游戏介绍 -->
+                    <div class="game-description">
+                        <p>化身为耄耋妈🐈‍⬛——一位尽职尽责的妈妈，踏上寻找她三只活泼小猫咪的旅程。</p>
+                        
+                        <div class="character-section">
+                            <h3>🐱 三只小猫咪</h3>
+                            <div class="character-group">
+                                <h4>💚 哈吉米</h4>
+                                <p>精力充沛的攀爬高手，总是绕着树转圈。</p>
+                            </div>
+                            <div class="character-group">
+                                <h4>🔷 哈基米</h4>
+                                <p>一个热爱水的淘气包（让你头疼不已）。</p>
+                            </div>
+                            <div class="character-group">
+                                <h4>🟡 哈鸡米</h4>
+                                <p>似乎永远被月亮的神秘力量所吸引。</p>
+                            </div>
+                        </div>
+
+                        <p>你能在月落夜幕降临之前，让它们重聚吗？🌙</p>
+                    </div>
+
+                    <!-- 操作方式 -->
+                    <div class="controls-section">
+                        <h2>🎮 操作方式</h2>
+                        
+                        <div class="control-group">
+                            <h3>通用操作</h3>
+                            <p>屏幕按钮或键盘</p>
+                            <p>按下第一个键后，将显示高级键盘快捷键</p>
+                        </div>
+                    </div>
+
+                    <!-- 挑战关卡 -->
+                    <div class="challenge-section">
+                        <h2>🎯 挑战关卡</h2>
+                        <p>我收集了一些我觉得有趣的关卡设置。完成教程后，你可以点击📂按钮加载它们。</p>
+                        
+                        <div class="level-codes">
+                            <div class="level-code">🟣04🔵03🟢43🟡30🌙00🌳32💧34</div>
+                            <div class="level-code">🟣24🔵43🟢03🟡40🌙00🌳21💧20</div>
+                            <div class="level-code">🟣02🔵31🟢32🟡33🌙00🌳12💧13</div>
+                            <div class="level-code">🟣30🔵02🟢11🟡41🌙00🌳23💧24</div>
+                            <div class="level-code">🟣30🔵03🟢41🟡33🌙00🌳13💧21</div>
+                            <div class="level-code">🟣22🔵23🟢33🟡14🌙00🌳32💧21</div>
+                            <div class="level-code">🟣21🔵20🟢24🟡03🌙00🌳22💧31</div>
+                            <div class="level-code">🟣03🔵34🟢04🟡21🌙01🌳11💧22</div>
+                            <div class="level-code">🟣22🔵20🟢31🟡11🌙02🌳32💧14</div>
+                            <div class="level-code">🟣14🔵22🟢04🟡44🌙02🌳13💧24 - "陷阱"</div>
+                            <div class="level-code">🟣22🔵24🟢11🟡42🌙03🌳21💧23 - 短关</div>
+                            <div class="level-code">🟣21🔵24🟢13🟡02🌙32🌳12💧22 - 倒置短关</div>
+                            <div class="level-code">🟣12🔵32🟢23🟡21🌙40🌳22💧04 - 倒置长关</div>
+                        </div>
+                    </div>
+
+                    <!-- 游戏机制 -->
+                    <div class="mechanic-section">
+                        <h2>⚙️ 游戏机制</h2>
+                        
+                        <div class="mechanic-group">
+                            <h3>关卡生成和难度</h3>
+                            <p>所有关卡均为随机生成</p>
+                            <p>每个关卡都可以在步数限制内解开（如果存在步数限制）。例外情况：如果您看到步数限制显示为问号，则表示尝试 13 次后仍未找到有效关卡——这种情况非常罕见。</p>
+                            <p>显示的难度基于解题方案的数量（通往胜利的路径数量）。</p>
+                        </div>
+
+                        <div class="mechanic-group">
+                            <h3>经验值系统</h3>
+                            <p>完整版游戏采用更高级的难度系统，难度会随着你的经验值（XP）缓慢提升，但为了节省内存，我不得不简化这一机制。</p>
+                            <p>说到经验值（XP），这是一个简单的系统：</p>
+                            <ul>
+                                <li>胜利：+10 经验值（XP）</li>
+                                <li>难度加成：+0 / +1 / +3</li>
+                                <li>剩余步数：+ 剩余步数</li>
+                                <li>重试次数：- 重试次数</li>
+                            </ul>
+                            <p>你可以花费 5 个经验值（XP）"购买"提示。</p>
+                            <p>提示会高亮显示最佳下一步走法，或者如果无法通过下一步获胜，则会显示重试按钮。</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 右侧开始游戏按钮 -->
+                <div class="start-game-section">
+                    <a href="https://fightagainstdev.github.io/qrgather" target="_blank" class="start-game-btn">
+                        <span class="btn-text">开始游戏</span>
+                        <div class="btn-glow"></div>
+                    </a>
+                </div>
+            </div>
+        </main>
+
+        <!-- 页脚 -->
+        <footer class="footer">
+            <p>&copy; 2025 Lumin Game Platform. All rights reserved.</p>
+            <p>商业合作email +zhegeshijietailuan@126.com</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

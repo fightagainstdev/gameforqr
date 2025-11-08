@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>复仇之猫 - 游戏介绍</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Exo+2:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- 音乐控制 -->
+        <div class="music-control">
+            <span class="music-label">BGM</span>
+            <label class="toggle-switch">
+                <input type="checkbox" id="bgm-toggle">
+                <span class="toggle-slider"></span>
+            </label>
+        </div>
+        <!-- 背景特效 -->
+        <div class="background-effects">
+            <div class="particles"></div>
+            <div class="grid-lines"></div>
+        </div>
+
+        <!-- 导航栏 -->
+        <nav class="game-nav">
+            <a href="games.html" class="nav-btn">
+                <span>返回游戏列表</span>
+            </a>
+            <h1 class="game-title">游戏介绍</h1>
+        </nav>
+
+        <!-- 游戏介绍内容 -->
+        <main class="game-intro-content">
+            <div class="intro-layout">
+                <!-- 左侧游戏信息 -->
+                <div class="game-info">
+                    <!-- 游戏图片 -->
+                    <div class="intro-game-image">
+                        <img src="revenge.png" alt="复仇之猫">
+                    </div>
+                    
+                    <!-- 游戏名称 -->
+                    <h1 class="intro-game-title">复仇之猫</h1>
+                    
+                    <!-- 游戏介绍 -->
+                    <div class="game-description">
+                        <p>为你的人类复仇，在快节奏、充满挑战的关卡中斩杀一波又一波的敌人。复仇之猫是一款死亡重试的动作游戏：你会频繁倒下，但每次重试都是即时的，让你始终保持战斗的势头。</p>
+                        <p>证明你的实力，完成游戏即可解锁"9条命模式"。</p>
+                    </div>
+
+                    <!-- 操作方式 -->
+                    <div class="controls-section">
+                        <h2>操作</h2>
+                        
+                        <!-- 电脑端操作 -->
+                        <div class="control-group">
+                            <h3>电脑端</h3>
+                            <p>移动：↑ ← ↓ → 或 W A S D</p>
+                            <div class="keyboard-controls">
+                                <div class="key-row">
+                                    <div class="key key-w">W</div>
+                                </div>
+                                <div class="key-row">
+                                    <div class="key key-a">A</div>
+                                    <div class="key key-s">S</div>
+                                    <div class="key key-d">D</div>
+                                </div>
+                                <div class="key-row">
+                                    <div class="key key-up">↑</div>
+                                </div>
+                                <div class="key-row">
+                                    <div class="key key-left">←</div>
+                                    <div class="key key-down">↓</div>
+                                    <div class="key key-right">→</div>
+                                </div>
+                            </div>
+                            <p>攻击：空格键</p>
+                            <div class="keyboard-controls">
+                                <div class="key-row">
+                                    <div class="key key-space">空格键</div>
+                                </div>
+                            </div>
+                            <p>翻滚：↓</p>
+                            <div class="keyboard-controls">
+                                <div class="key-row">
+                                    <div class="key key-down">↓</div>
+                                </div>
+                            </div>
+                            <p>喵喵叫：E</p>
+                            <div class="keyboard-controls">
+                                <div class="key-row">
+                                    <div class="key key-e">E</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 手机端操作 -->
+                        <div class="control-group">
+                            <h图片生i3>手机端</h3>
+                            <p>使用触摸屏虚拟摇杆移动，点击屏幕进行攻击</p>
+                            <p>滑动屏幕进行翻滚，点击特殊按钮喵喵叫</p>
+                        </div>
+
+                        <p class="platform-note">游戏针对移动设备和电脑进行了优化，让你随时随地都能为你的主人复仇。</p>
+                    </div>
+                </div>
+
+                <!-- 右侧开始游戏按钮 -->
+                <div class="start-game-section">
+                    <a href="https://fightagainstdev.github.io/qrcatrevenge" target="_blank" class="start-game-btn">
+                        <span class="btn-text">开始游戏</span>
+                        <div class="btn-glow"></div>
+                    </a>
+                </div>
+            </div>
+        </main>
+
+        <!-- 页脚 -->
+        <footer class="footer">
+            <p>&copy; 2025 Lumin Game Platform. All rights reserved.</p>
+            <p>商业合作email +zhegeshijietailuan@126.com</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
