@@ -3,103 +3,107 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>猫式扫雷 - Lumin游戏平台</title>
+    <title>猫式扫雷 - 游戏介绍</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Exo+2:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- 音乐控制 -->
-    <div class="music-control">
-        <div class="music-toggle" id="musicToggle">
+    <div class="container">
+        <!-- 音乐控制 -->
+        <div class="music-control">
             <span class="music-label">BGM</span>
-            <div class="toggle-switch">
-                <div class="toggle-slider"></div>
-            </div>
+            <label class="toggle-switch">
+                <input type="checkbox" id="bgm-toggle">
+                <span class="toggle-slider"></span>
+            </label>
         </div>
-    </div>
+        
+        <!-- 背景特效 -->
+        <div class="background-effects">
+            <div class="particles"></div>
+            <div class="grid-lines"></div>
+        </div>
 
-    <!-- 导航栏 -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <a href="index.html" class="nav-logo">
-                <img src="logo.png" alt="Lumin Logo">
+        <!-- 导航栏 -->
+        <nav class="game-nav">
+            <a href="games.html" class="nav-btn">
+                <span>返回游戏列表</span>
             </a>
-            <div class="nav-menu">
-                <a href="index.html" class="nav-link">首页</a>
-                <a href="games.html" class="nav-link">游戏库</a>
-            </div>
-        </div>
-    </nav>
+            <h1 class="game-title">游戏介绍</h1>
+        </nav>
 
-    <!-- 游戏介绍内容 -->
-    <main class="game-intro-container">
-        <div class="game-header">
-            <div class="game-image">
-                <img src="block.png" alt="猫式扫雷">
-            </div>
-            <div class="game-info">
-                <h1 class="game-title">猫式扫雷</h1>
-                <div class="game-subtitle">手机、电脑</div>
-                <div class="game-description">
-                    在这个游戏中，你要帮助他们收集星星，为北极光增添光彩。
+        <!-- 游戏介绍内容 -->
+        <main class="game-intro-content">
+            <div class="intro-layout">
+                <!-- 左侧游戏信息 -->
+                <div class="game-info">
+                    <!-- 游戏图片 -->
+                    <div class="intro-game-image">
+                        <img src="block.png" alt="猫式扫雷">
+                    </div>
+                    
+                    <!-- 游戏名称 -->
+                    <h1 class="intro-game-title">猫式扫雷</h1>
+                    
+                    <!-- 游戏介绍 -->
+                    <div class="game-description">
+                        <p>在这个游戏中，你要帮助他们收集星星，为北极光增添光彩。</p>
+                        <p>解谜的方法是将一只猫咪放置在每个发光的饰品旁边。</p>
+                        <p>完成四个谜题后，飞越云层收集星星。解开谜题可以增加你收集到的星星数量。</p>
+                        <p>游戏的音乐和谜题都是随机生成的，所以每次游戏体验都会略有不同。</p>
+                    </div>
+
+                    <!-- 游戏说明 -->
+                    <div class="controls-section">
+                        <h2>游戏说明</h2>
+                        <ul class="game-instructions">
+                            <li>点击空白方块放置或移除猫咪。</li>
+                            <li>你可以重新放置猫咪，直到放置完最后一只。</li>
+                            <li>标签显示每行猫咪的数量。</li>
+                            <li>猫咪之间不能互相接触，即使是斜向接触也不行。</li>
+                            <li>每个饰品必须至少与一只猫咪正交接触。</li>
+                            <li>谜题没有时间限制，你可以慢慢来。</li>
+                            <li>完成 4 个谜题即可开始收集当晚的星星。</li>
+                            <li>收集 300 颗星星即可获胜。</li>
+                        </ul>
+                    </div>
+
+                    <!-- 操作方式 -->
+                    <div class="controls-section">
+                        <h2>操作方式</h2>
+                        
+                        <!-- 手机端操作 -->
+                        <div class="control-group">
+                            <h3>手机端</h3>
+                            <p>点击/轻触：放置或移除猫咪</p>
+                            <p>滑块：控制猫在隧道中移动</p>
+                        </div>
+
+                        <!-- 电脑端操作 -->
+                        <div class="control-group">
+                            <h3>电脑端</h3>
+                            <p>点击：放置或移除猫咪</p>
+                            <p>滑块：控制猫在隧道中移动</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 右侧开始游戏按钮 -->
+                <div class="start-game-section">
+                    <a href="https://fightagainstdev.github.io/qrblock" target="_blank" class="start-game-btn">
+                        <span class="btn-text">开始游戏</span>
+                        <div class="btn-glow"></div>
+                    </a>
                 </div>
             </div>
-        </div>
+        </main>
 
-        <div class="game-content">
-            <section class="game-story">
-                <h2>游戏故事</h2>
-                <p>解谜的方法是将一只猫咪放置在每个发光的饰品旁边。</p>
-                <p>完成四个谜题后，飞越云层收集星星。解开谜题可以增加你收集到的星星数量。</p>
-                <p>游戏的音乐和谜题都是随机生成的，所以每次游戏体验都会略有不同。</p>
-            </section>
-
-            <section class="game-instructions">
-                <h2>游戏说明</h2>
-                <ul>
-                    <li>点击空白方块放置或移除猫咪。</li>
-                    <li>你可以重新放置猫咪，直到放置完最后一只。</li>
-                    <li>标签显示每行猫咪的数量。</li>
-                    <li>猫咪之间不能互相接触，即使是斜向接触也不行。</li>
-                    <li>每个饰品必须至少与一只猫咪正交接触。</li>
-                    <li>谜题没有时间限制，你可以慢慢来。</li>
-                    <li>完成 4 个谜题即可开始收集当晚的星星。</li>
-                    <li>收集 300 颗星星即可获胜。</li>
-                </ul>
-            </section>
-
-            <section class="game-controls">
-                <h2>操作方式</h2>
-                <div class="controls-grid">
-                    <div class="control-item">
-                        <div class="control-key">点击/轻触</div>
-                        <div class="control-desc">放置或移除猫咪</div>
-                    </div>
-                    <div class="control-item">
-                        <div class="control-key">滑块</div>
-                        <div class="control-desc">控制猫在隧道中移动</div>
-                    </div>
-                </div>
-            </section>
-
-            <div class="game-actions">
-                <a href="https://fightagainstdev.github.io/qrblock" class="btn btn-red btn-large">
-                    开始游戏
-                </a>
-                <a href="games.html" class="btn btn-secondary">
-                    返回游戏库
-                </a>
-            </div>
-        </div>
-    </main>
-
-    <!-- 页脚 -->
-    <footer class="footer">
-        <div class="footer-content">
-            <p>&copy; 2025 Lumin游戏平台. 一个湖南男大（曲某）与他的12名悍将组成的网页游戏游玩平台</p>
-            <p>商务合作邮箱: <a href="mailto:business@lumingames.com">business@lumingames.com</a></p>
-        </div>
-    </footer>
+        <!-- 页脚 -->
+        <footer class="footer">
+            <p>&copy; 2025 Lumin Game Platform. All rights reserved.</p>
+            <p>商业合作email +zhegeshijietailuan@126.com</p>
+        </footer>
+    </div>
 
     <script src="script.js"></script>
 </body>
