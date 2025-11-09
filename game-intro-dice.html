@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>骰子大冒险 - 游戏介绍</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Exo+2:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- 背景特效 -->
+        <div class="background-effects">
+            <div class="particles"></div>
+            <div class="grid-lines"></div>
+        </div>
+
+        <!-- 导航栏 -->
+        <nav class="game-nav">
+            <a href="games.html" class="nav-btn">
+                <span>返回游戏列表</span>
+            </a>
+            <h1 class="game-title">游戏介绍</h1>
+        </nav>
+
+        <!-- 游戏介绍内容 -->
+        <main class="game-intro-content">
+            <div class="intro-layout">
+                <!-- 左侧游戏信息 -->
+                <div class="game-info">
+                    <!-- 游戏图片 -->
+                    <div class="intro-game-image">
+                        <img src="dice.png" alt="骰子大冒险">
+                    </div>
+                    
+                    <!-- 游戏名称 -->
+                    <h1 class="intro-game-title">骰子大冒险</h1>
+                    
+                    <!-- 游戏介绍 -->
+                    <div class="game-description">
+                        <p>你终于受够了舰队的无能。逐一击败13艘船，夺取霸主地位。一路上，你会发现珍贵的货物骰子，它们代表着你飞船的生命力和火力。你还可能遇到友好的商人、木匠和潜在的船员，他们都渴望加入你的队伍，助你一臂之力。</p>
+                        <p>游戏完全使用鼠标（或触摸）操作。你可以按M键静音。</p>
+                        <p>你飞船的货物由骰子组成，骰子的总点数代表你飞船的总生命值。这些骰子也会影响你在战斗中掷出的伤害骰子的数量。务必小心，不要让你的货物总点数达到13，因为即使在战斗中掷出13，也可能带来不利的后果。</p>
+                    </div>
+
+                    <!-- 操作方式 -->
+                    <div class="controls-section">
+                        <h2>操作方式</h2>
+                        
+                        <!-- 手机端操作 -->
+                        <div class="control-group">
+                            <h3>手机端</h3>
+                            <p>使用触摸屏进行操作</p>
+                            <p>点击选择选项</p>
+                        </div>
+
+                        <!-- 电脑端操作 -->
+                        <div class="control-group">
+                            <h3>电脑端</h3>
+                            <p>使用鼠标进行操作</p>
+                            <p>点击选择选项</p>
+                            <p>按M键静音</p>
+                        </div>
+                    </div>
+
+                    <!-- 游戏机制 -->
+                    <div class="controls-section">
+                        <h2>游戏机制</h2>
+                        <div class="control-group">
+                            <h3>骰子系统</h3>
+                            <p>• 骰子总点数 = 飞船生命值</p>
+                            <p>• 骰子数量 = 伤害骰子数量</p>
+                            <p>• 避免总点数达到13</p>
+                            <p>• 掷出13可能带来不利后果</p>
+                        </div>
+                    </div>
+
+                    <!-- 游戏目标 -->
+                    <div class="controls-section">
+                        <h2>游戏目标</h2>
+                        <div class="control-group">
+                            <p>击败13艘敌舰，成为宇宙霸主</p>
+                            <p>收集骰子增强实力</p>
+                            <p>招募船员壮大队伍</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 右侧开始游戏按钮 -->
+                <div class="start-game-section">
+                    <a href="https://fightagainstdev.github.io/qrdice" target="_blank" class="start-game-btn">
+                        <span class="btn-text">开始游戏</span>
+                        <div class="btn-glow"></div>
+                    </a>
+                </div>
+            </div>
+        </main>
+
+        <!-- 页脚 -->
+        <footer class="footer">
+            <p>&copy; 2025 Lumin Game Platform. All rights reserved.</p>
+            <p>商业合作email +zhegeshijietailuan@126.com</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

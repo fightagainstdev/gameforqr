@@ -1009,6 +1009,98 @@ body {
 .game-card:nth-child(2) { animation-delay: 0.2s; }
 .game-card:nth-child(3) { animation-delay: 0.3s; }
 
+/* 背景样式定义 */
+body.bg-default {
+    background: linear-gradient(135deg, #0c0c0c 0%, #1a1a2e 50%, #16213e 100%);
+}
+
+body.bg-neon {
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a0033 50%, #330066 100%);
+}
+
+body.bg-ocean {
+    background: linear-gradient(135deg, #001122 0%, #003366 50%, #0066cc 100%);
+}
+
+body.bg-sunset {
+    background: linear-gradient(135deg, #2c1810 0%, #8b4513 50%, #ff6347 100%);
+}
+
+body.bg-forest {
+    background: linear-gradient(135deg, #0a1f0f 0%, #1a4d1a 50%, #228b22 100%);
+}
+
+body.bg-space {
+    background: linear-gradient(135deg, #000011 0%, #000033 50%, #000066 100%);
+}
+
+/* 背景特效变化 */
+body.bg-neon .particles {
+    background:
+        radial-gradient(circle at 20% 80%, rgba(255, 0, 255, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(0, 255, 255, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 40% 40%, rgba(255, 255, 0, 0.1) 0%, transparent 50%);
+}
+
+body.bg-ocean .particles {
+    background:
+        radial-gradient(circle at 20% 80%, rgba(0, 191, 255, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(30, 144, 255, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 40% 40%, rgba(0, 255, 255, 0.1) 0%, transparent 50%);
+}
+
+body.bg-sunset .particles {
+    background:
+        radial-gradient(circle at 20% 80%, rgba(255, 69, 0, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(255, 140, 0, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 40% 40%, rgba(255, 215, 0, 0.1) 0%, transparent 50%);
+}
+
+body.bg-forest .particles {
+    background:
+        radial-gradient(circle at 20% 80%, rgba(34, 139, 34, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(0, 128, 0, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 40% 40%, rgba(50, 205, 50, 0.1) 0%, transparent 50%);
+}
+
+body.bg-space .particles {
+    background:
+        radial-gradient(circle at 20% 80%, rgba(138, 43, 226, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(75, 0, 130, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 40% 40%, rgba(25, 25, 112, 0.1) 0%, transparent 50%);
+}
+
+/* 网格线颜色变化 */
+body.bg-neon .grid-lines {
+    background-image:
+        linear-gradient(rgba(255, 0, 255, 0.1) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 255, 255, 0.1) 1px, transparent 1px);
+}
+
+body.bg-ocean .grid-lines {
+    background-image:
+        linear-gradient(rgba(0, 191, 255, 0.1) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(30, 144, 255, 0.1) 1px, transparent 1px);
+}
+
+body.bg-sunset .grid-lines {
+    background-image:
+        linear-gradient(rgba(255, 69, 0, 0.1) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 140, 0, 0.1) 1px, transparent 1px);
+}
+
+body.bg-forest .grid-lines {
+    background-image:
+        linear-gradient(rgba(34, 139, 34, 0.1) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 128, 0, 0.1) 1px, transparent 1px);
+}
+
+body.bg-space .grid-lines {
+    background-image:
+        linear-gradient(rgba(138, 43, 226, 0.1) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(75, 0, 130, 0.1) 1px, transparent 1px);
+}
+
 /* 响应式设计更新 */
 @media (max-width: 768px) {
     .game-nav {
@@ -1016,34 +1108,34 @@ body {
         gap: 20px;
         text-align: center;
     }
-    
+
     .game-title {
         font-size: 2rem;
     }
-    
+
     .games-grid {
         grid-template-columns: 1fr;
         gap: 20px;
     }
-    
+
     .game-card {
         padding: 20px;
     }
-    
+
     .intro-layout {
         grid-template-columns: 1fr;
         gap: 30px;
     }
-    
+
     .intro-game-title {
         font-size: 2.2rem;
     }
-    
+
     .start-game-btn {
         padding: 20px 40px;
         font-size: 1.3rem;
     }
-    
+
     .key {
         width: 45px;
         height: 45px;
@@ -1088,10 +1180,118 @@ body {
     }
 }
 
+/* 背景选择器样式 */
+.background-selector {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 10px 15px;
+    border-radius: 25px;
+    border: 1px solid rgba(0, 255, 255, 0.3);
+    backdrop-filter: blur(10px);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.background-selector-label {
+    color: #00ffff;
+    font-family: 'Orbitron', monospace;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+}
+
+.background-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.background-btn {
+    background: rgba(0, 255, 255, 0.1);
+    color: #00ffff;
+    border: 1px solid rgba(0, 255, 255, 0.3);
+    padding: 8px 12px;
+    border-radius: 20px;
+    font-family: 'Orbitron', monospace;
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.background-btn:hover {
+    background: rgba(0, 255, 255, 0.2);
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+}
+
+.background-btn::after {
+    content: '▼';
+    font-size: 0.7rem;
+    transition: transform 0.3s ease;
+}
+
+.background-btn.active::after {
+    transform: rotate(180deg);
+}
+
+.background-menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: rgba(0, 0, 0, 0.9);
+    border: 1px solid rgba(0, 255, 255, 0.3);
+    border-radius: 15px;
+    padding: 10px;
+    min-width: 150px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    z-index: 1001;
+    backdrop-filter: blur(10px);
+}
+
+.background-menu.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.background-option {
+    display: block;
+    width: 100%;
+    padding: 8px 12px;
+    background: none;
+    border: none;
+    color: #00ffff;
+    font-family: 'Orbitron', monospace;
+    font-size: 0.8rem;
+    text-align: left;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    margin-bottom: 2px;
+}
+
+.background-option:hover {
+    background: rgba(0, 255, 255, 0.2);
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.2);
+}
+
+.background-option.active {
+    background: rgba(0, 255, 255, 0.3);
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.4);
+}
+
 /* 音乐控制样式 */
 .music-control {
     position: fixed;
-    top: 20px;
+    top: 80px;
     right: 20px;
     display: flex;
     align-items: center;
@@ -1163,56 +1363,106 @@ input:checked + .toggle-slider:before {
 
 /* 响应式设计 */
 @media (max-width: 768px) {
-    .music-control {
+    .background-selector {
         top: 10px;
         right: 10px;
         padding: 8px 12px;
     }
-    
+
+    .background-selector-label {
+        font-size: 0.8rem;
+    }
+
+    .background-btn {
+        padding: 6px 10px;
+        font-size: 0.7rem;
+    }
+
+    .background-menu {
+        min-width: 130px;
+        padding: 8px;
+    }
+
+    .background-option {
+        padding: 6px 10px;
+        font-size: 0.7rem;
+    }
+
+    .music-control {
+        top: 70px;
+        right: 10px;
+        padding: 8px 12px;
+    }
+
     .music-label {
         font-size: 0.8rem;
     }
-    
+
     .toggle-switch {
         width: 45px;
         height: 22px;
     }
-    
+
     .toggle-slider:before {
         height: 14px;
         width: 14px;
         left: 3px;
         bottom: 3px;
     }
-    
+
     input:checked + .toggle-slider:before {
         transform: translateX(23px);
     }
 }
 
 @media (max-width: 480px) {
-    .music-control {
+    .background-selector {
         top: 5px;
         right: 5px;
         padding: 6px 10px;
     }
-    
+
+    .background-selector-label {
+        font-size: 0.7rem;
+    }
+
+    .background-btn {
+        padding: 5px 8px;
+        font-size: 0.6rem;
+    }
+
+    .background-menu {
+        min-width: 120px;
+        padding: 6px;
+    }
+
+    .background-option {
+        padding: 5px 8px;
+        font-size: 0.6rem;
+    }
+
+    .music-control {
+        top: 60px;
+        right: 5px;
+        padding: 6px 10px;
+    }
+
     .music-label {
         font-size: 0.7rem;
     }
-    
+
     .toggle-switch {
         width: 40px;
         height: 20px;
     }
-    
+
     .toggle-slider:before {
         height: 12px;
         width: 12px;
         left: 3px;
         bottom: 3px;
     }
-    
+
     input:checked + .toggle-slider:before {
         transform: translateX(20px);
     }

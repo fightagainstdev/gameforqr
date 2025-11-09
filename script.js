@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initializeScrollAnimations();
     initializeCursorEffects();
     initializeMusicControl();
+    initializeBackgroundSelector();
 });
 
 // 粒子效果初始化
@@ -526,3 +527,93 @@ musicStyle.textContent = `
     }
 `;
 document.head.appendChild(musicStyle);
+
+// 背景选择器初始化
+function initializeBackgroundSelector() {
+    const backgroundSelector = document.createElement('div');
+    backgroundSelector.className = 'background-selector';
+    backgroundSelector.innerHTML = `
+        <span class="background-selector-label">背景</span>
+        <div class="background-dropdown">
+            <button class="background-btn" id="background-btn">
+                <span id="current-bg-name">默认</span>
+            </button>
+            <div class="background-menu" id="background-menu">
+                <button class="background-option active" data-bg="default">默认</button>
+                <button class="background-option" data-bg="neon">霓虹</button>
+                <button class="background-option" data-bg="ocean">海洋</button>
+                <button class="background-option" data-bg="sunset">日落</button>
+                <button class="background-option" data-bg="forest">森林</button>
+                <button class="background-option" data-bg="space">太空</button>
+            </div>
+        </div>
+    `;
+
+    document.body.appendChild(backgroundSelector);
+
+    // 从本地存储加载背景设置
+    const savedBg = localStorage.getItem('selectedBackground') || 'default';
+    setBackground(savedBg);
+
+    // 绑定事件
+    const bgBtn = document.getElementById('background-btn');
+    const bgMenu = document.getElementById('background-menu');
+
+    bgBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        bgMenu.classList.toggle('show');
+        bgBtn.classList.toggle('active');
+    });
+
+    // 点击其他地方关闭菜单
+    document.addEventListener('click', function() {
+        bgMenu.classList.remove('show');
+        bgBtn.classList.remove('active');
+    });
+
+    // 背景选项点击事件
+    const bgOptions = document.querySelectorAll('.background-option');
+    bgOptions.forEach(option => {
+        option.addEventListener('click', function() {
+            const bgType = this.getAttribute('data-bg');
+            setBackground(bgType);
+
+            // 更新UI状态
+            bgOptions.forEach(opt => opt.classList.remove('active'));
+            this.classList.add('active');
+
+            // 关闭菜单
+            bgMenu.classList.remove('show');
+            bgBtn.classList.remove('active');
+        });
+    });
+}
+
+// 设置背景
+function setBackground(bgType) {
+    // 移除所有背景类
+    document.body.className = document.body.className.replace(/bg-\w+/g, '').trim();
+
+    // 添加新背景类
+    if (bgType !== 'default') {
+        document.body.classList.add(`bg-${bgType}`);
+    }
+
+    // 更新按钮文本
+    const bgNames = {
+        'default': '默认',
+        'neon': '霓虹',
+        'ocean': '海洋',
+        'sunset': '日落',
+        'forest': '森林',
+        'space': '太空'
+    };
+
+    const currentBgName = document.getElementById('current-bg-name');
+    if (currentBgName) {
+        currentBgName.textContent = bgNames[bgType] || '默认';
+    }
+
+    // 保存到本地存储
+    localStorage.setItem('selectedBackground', bgType);
+}
