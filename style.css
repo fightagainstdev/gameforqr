@@ -245,17 +245,34 @@ body {
 .btn-secondary {
     background: linear-gradient(135deg, #28a745 0%, #1e7e34 100%);
     color: white;
-    box-shadow: 
+    box-shadow:
         0 0 20px rgba(40, 167, 69, 0.4),
         inset 0 1px 0 rgba(255, 255, 255, 0.2);
 }
 
 .btn-secondary:hover {
     transform: translateY(-3px);
-    box-shadow: 
+    box-shadow:
         0 0 30px rgba(40, 167, 69, 0.6),
         0 10px 20px rgba(0, 0, 0, 0.3);
     background: linear-gradient(135deg, #1e7e34 0%, #155724 100%);
+}
+
+/* 三级按钮 - 橙色 */
+.btn-tertiary {
+    background: linear-gradient(135deg, #fd7e14 0%, #e8680c 100%);
+    color: white;
+    box-shadow:
+        0 0 20px rgba(253, 126, 20, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.btn-tertiary:hover {
+    transform: translateY(-3px);
+    box-shadow:
+        0 0 30px rgba(253, 126, 20, 0.6),
+        0 10px 20px rgba(0, 0, 0, 0.3);
+    background: linear-gradient(135deg, #e8680c 0%, #d35400 100%);
 }
 
 /* 页脚 */
