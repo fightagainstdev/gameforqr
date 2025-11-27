@@ -637,80 +637,116 @@ function initializeMusicPlayer() {
     let currentAudio = null;
     let currentSong = null;
 
-    // 音乐下拉菜单切换
-    musicBtn.addEventListener('click', function(e) {
-        e.stopPropagation();
+    // 音乐下拉菜单切换 - 支持触摸和点击事件
+    function toggleMusicMenu(e) {
+        if (e) {
+            e.stopPropagation();
+            e.preventDefault();
+        }
         musicMenu.classList.toggle('show');
-        this.classList.toggle('active');
+        musicBtn.classList.toggle('active');
+    }
+
+    // 为移动设备和桌面设备添加事件监听
+    musicBtn.addEventListener('click', toggleMusicMenu);
+    musicBtn.addEventListener('touchstart', function(e) {
+        // 防止触摸事件触发点击事件
+        e.preventDefault();
+    });
+    musicBtn.addEventListener('touchend', function(e) {
+        e.preventDefault();
+        toggleMusicMenu();
     });
 
     // 点击其他地方关闭菜单
-    document.addEventListener('click', function(e) {
+    function closeMusicMenu(e) {
         if (!musicBtn.contains(e.target) && !musicMenu.contains(e.target)) {
             musicMenu.classList.remove('show');
             musicBtn.classList.remove('active');
         }
-    });
+    }
 
-    // 歌曲选择事件
-    musicOptions.forEach(option => {
-        option.addEventListener('click', function() {
-            const songName = this.getAttribute('data-name');
+    document.addEventListener('click', closeMusicMenu);
+    document.addEventListener('touchstart', closeMusicMenu);
+
+    // 歌曲选择事件处理函数
+    function handleSongSelection(option) {
+        const songName = option.getAttribute('data-name');
+        
+        // 更新当前歌曲显示
+        currentSongSpan.textContent = songName;
+        currentSong = songName;
+
+        // 更新UI状态
+        musicOptions.forEach(opt => opt.classList.remove('active'));
+        option.classList.add('active');
+
+        // 启用控制按钮
+        playBtn.disabled = false;
+        pauseBtn.disabled = false;
+        replayBtn.disabled = false;
+
+        // 关闭菜单
+        musicMenu.classList.remove('show');
+        musicBtn.classList.remove('active');
+
+        // 如果已经有音频在播放，停止它
+        if (currentAudio) {
+            currentAudio.pause();
+            currentAudio.currentTime = 0;
+        }
+
+        // 从Base64数据创建音频对象
+        try {
+            const base64Data = getAudioData(songName);
+            if (!base64Data) {
+                throw new Error(`未找到歌曲数据: ${songName}`);
+            }
             
-            // 更新当前歌曲显示
-            currentSongSpan.textContent = songName;
-            currentSong = songName;
+            // 创建音频对象
+            currentAudio = new Audio(`data:audio/mpeg;base64,${base64Data}`);
+            currentAudio.loop = false;
+            currentAudio.volume = 0.5;
 
-            // 更新UI状态
-            musicOptions.forEach(opt => opt.classList.remove('active'));
-            this.classList.add('active');
-
-            // 启用控制按钮
-            playBtn.disabled = false;
-            pauseBtn.disabled = false;
-            replayBtn.disabled = false;
-
-            // 关闭菜单
-            musicMenu.classList.remove('show');
-            musicBtn.classList.remove('active');
-
-            // 如果已经有音频在播放，停止它
-            if (currentAudio) {
-                currentAudio.pause();
-                currentAudio.currentTime = 0;
-            }
-
-            // 从Base64数据创建音频对象
-            try {
-                const base64Data = getAudioData(songName);
-                if (!base64Data) {
-                    throw new Error(`未找到歌曲数据: ${songName}`);
-                }
-                
-                // 创建音频对象
-                currentAudio = new Audio(`data:audio/mpeg;base64,${base64Data}`);
-                currentAudio.loop = false;
-                currentAudio.volume = 0.5;
-
-                // 音频加载错误处理
-                currentAudio.addEventListener('error', function() {
-                    console.error(`无法加载歌曲: ${songName}`);
-                    alert(`无法加载歌曲: ${songName}`);
-                    resetMusicControls();
-                });
-
-                // 音频播放结束事件
-                currentAudio.addEventListener('ended', function() {
-                    playBtn.disabled = false;
-                    pauseBtn.disabled = true;
-                });
-
-                console.log(`歌曲 ${songName} 已加载`);
-            } catch (error) {
-                console.error('创建音频对象失败:', error);
-                alert(`加载歌曲失败: ${error.message}`);
+            // 音频加载错误处理
+            currentAudio.addEventListener('error', function() {
+                console.error(`无法加载歌曲: ${songName}`);
+                alert(`无法加载歌曲: ${songName}`);
                 resetMusicControls();
-            }
+            });
+
+            // 音频播放结束事件
+            currentAudio.addEventListener('ended', function() {
+                playBtn.disabled = false;
+                pauseBtn.disabled = true;
+            });
+
+            console.log(`歌曲 ${songName} 已加载`);
+        } catch (error) {
+            console.error('创建音频对象失败:', error);
+            alert(`加载歌曲失败: ${error.message}`);
+            resetMusicControls();
+        }
+    }
+
+    // 歌曲选择事件 - 支持触摸和点击
+    musicOptions.forEach(option => {
+        // 点击事件
+        option.addEventListener('click', function(e) {
+            e.stopPropagation();
+            handleSongSelection(this);
+        });
+        
+        // 触摸事件
+        option.addEventListener('touchstart', function(e) {
+            e.stopPropagation();
+            e.preventDefault();
+        });
+        
+        option.addEventListener('touchend', function(e) {
+            e.stopPropagation();
+            e.preventDefault();
+            handleSongSelection(this);
         });
     });
 

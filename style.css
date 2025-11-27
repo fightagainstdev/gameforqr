@@ -1428,6 +1428,7 @@ body.bg-space .grid-lines {
     display: flex;
     align-items: center;
     gap: 15px;
+    touch-action: manipulation; /* 改善移动设备触摸体验 */
 }
 
 .music-dropdown {
@@ -1449,11 +1450,19 @@ body.bg-space .grid-lines {
     align-items: center;
     gap: 8px;
     min-width: 120px;
+    touch-action: manipulation; /* 改善移动设备触摸体验 */
+    -webkit-tap-highlight-color: transparent; /* 移除移动设备点击高亮 */
 }
 
 .music-btn:hover {
     background: rgba(0, 255, 255, 0.2);
     box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+}
+
+/* 移动设备上的激活状态 */
+.music-btn:active {
+    background: rgba(0, 255, 255, 0.3);
+    transform: scale(0.98);
 }
 
 .music-icon {
@@ -1464,7 +1473,7 @@ body.bg-space .grid-lines {
     position: absolute;
     top: 100%;
     left: 0;
-    background: rgba(0, 0, 0, 0.9);
+    background: rgba(0, 0, 0, 0.95);
     border: 1px solid rgba(0, 255, 255, 0.3);
     border-radius: 15px;
     padding: 10px;
@@ -1475,12 +1484,44 @@ body.bg-space .grid-lines {
     transition: all 0.3s ease;
     z-index: 1001;
     backdrop-filter: blur(10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
 .music-menu.show {
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
+}
+
+/* 移动设备上的菜单选项优化 */
+.music-option {
+    padding: 12px 16px; /* 增加触摸区域 */
+    color: #00ffff;
+    font-family: 'Orbitron', monospace;
+    font-size: 0.9rem;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    margin-bottom: 2px;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+    min-height: 20px; /* 确保足够的触摸高度 */
+}
+
+.music-option:hover {
+    background: rgba(0, 255, 255, 0.2);
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.2);
+}
+
+.music-option.active {
+    background: rgba(0, 255, 255, 0.3);
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.4);
+}
+
+/* 移动设备上的激活状态 */
+.music-option:active {
+    background: rgba(0, 255, 255, 0.4);
+    transform: scale(0.98);
 }
 
 .music-option {
@@ -1718,7 +1759,50 @@ input:checked + .toggle-slider:before {
 }
 
 /* 响应式设计 */
+/* 移动设备音乐播放器优化 */
 @media (max-width: 768px) {
+    .music-player {
+        top: 15px;
+        padding: 8px 12px;
+        gap: 10px;
+        flex-wrap: wrap;
+        justify-content: center;
+        max-width: 90%;
+    }
+
+    .music-btn {
+        padding: 10px 14px;
+        font-size: 0.9rem;
+        min-width: 140px;
+    }
+
+    .music-menu {
+        min-width: 160px;
+        padding: 12px;
+        left: 50%;
+        transform: translateX(-50%) translateY(-10px);
+    }
+
+    .music-menu.show {
+        transform: translateX(-50%) translateY(0);
+    }
+
+    .music-option {
+        padding: 14px 16px;
+        font-size: 1rem;
+        min-height: 24px;
+    }
+
+    .music-controls {
+        gap: 6px;
+    }
+
+    .control-btn {
+        padding: 8px 12px;
+        font-size: 0.8rem;
+        min-width: 55px;
+    }
+
     .background-selector {
         top: 10px;
         right: 10px;
