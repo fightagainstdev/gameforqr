@@ -696,22 +696,26 @@ function initializeMusicPlayer() {
                 currentAudio.currentTime = 0;
             }
 
-            // 从Base64数据创建音频对象
+            // 直接使用MP3文件创建音频对象
             try {
-                const base64Data = getAudioData(songName);
-                if (!base64Data) {
-                    throw new Error(`未找到歌曲数据: ${songName}`);
+                let audioFile;
+                
+                // 根据歌曲名称选择对应的MP3文件
+                if (songName === "LIGHT") {
+                    audioFile = "light.mp3";
+                } else {
+                    throw new Error(`未找到歌曲文件: ${songName}`);
                 }
                 
                 // 创建音频对象
-                currentAudio = new Audio(`data:audio/mpeg;base64,${base64Data}`);
+                currentAudio = new Audio(audioFile);
                 currentAudio.loop = false;
                 currentAudio.volume = 0.5;
 
                 // 音频加载错误处理
                 currentAudio.addEventListener('error', function() {
-                    console.error(`无法加载歌曲: ${songName}`);
-                    alert(`无法加载歌曲: ${songName}`);
+                    console.error(`无法加载歌曲文件: ${audioFile}`);
+                    alert(`无法加载歌曲: ${songName}，请检查文件是否存在`);
                     resetMusicControls();
                 });
 
@@ -721,7 +725,12 @@ function initializeMusicPlayer() {
                     pauseBtn.disabled = true;
                 });
 
-                console.log(`歌曲 ${songName} 已加载`);
+                // 音频加载成功
+                currentAudio.addEventListener('canplaythrough', function() {
+                    console.log(`歌曲 ${songName} 已加载完成`);
+                });
+
+                console.log(`歌曲 ${songName} 已加载，文件: ${audioFile}`);
             } catch (error) {
                 console.error('创建音频对象失败:', error);
                 alert(`加载歌曲失败: ${error.message}`);
