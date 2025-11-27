@@ -679,7 +679,7 @@ body {
     visibility: hidden;
     transform: translateY(-10px);
     transition: all 0.3s ease;
-    z-index: 99999;
+    z-index: 10001; /* 更高的z-index确保在移动设备上显示 */
     backdrop-filter: blur(10px);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
@@ -1482,7 +1482,7 @@ body.bg-space .grid-lines {
     visibility: hidden;
     transform: translateY(-10px);
     transition: all 0.3s ease;
-    z-index: 1001;
+    z-index: 10001; /* 更高的z-index确保在移动设备上显示 */
     backdrop-filter: blur(10px);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
