@@ -15,6 +15,27 @@
             <div class="grid-lines"></div>
         </div>
 
+        <!-- 音乐播放器 -->
+        <div class="music-player">
+            <div class="music-dropdown">
+                <button class="music-btn" id="music-btn">
+                    <span class="music-icon">🎵</span>
+                    <span id="current-song">选择歌曲</span>
+                    <span class="dropdown-arrow">▼</span>
+                </button>
+                <div class="music-menu" id="music-menu">
+                    <div class="music-option" data-name="LIGHT">
+                        LIGHT
+                    </div>
+                </div>
+            </div>
+            <div class="music-controls">
+                <button class="control-btn" id="play-btn" disabled>播放</button>
+                <button class="control-btn" id="pause-btn" disabled>暂停</button>
+                <button class="control-btn" id="replay-btn" disabled>重播</button>
+            </div>
+        </div>
+
         <!-- 导航栏 -->
         <nav class="game-nav">
             <a href="index.html" class="nav-btn">
@@ -23,11 +44,98 @@
             <h1 class="game-title">游戏选择</h1>
         </nav>
 
+        <!-- 搜索区域 -->
+        <div class="search-section">
+            <div class="search-container">
+                <!-- 类别搜索 -->
+                <div class="category-search">
+                    <label for="category-select">按类别搜索：</label>
+                    <div class="search-mode-selector">
+                        <div class="mode-option">
+                            <input type="radio" id="mode-and" name="search-mode" value="and" checked>
+                            <label for="mode-and">叠加</label>
+                        </div>
+                        <div class="mode-option">
+                            <input type="radio" id="mode-or" name="search-mode" value="or">
+                            <label for="mode-or">全部</label>
+                        </div>
+                    </div>
+                    <div class="dropdown-container">
+                        <button class="dropdown-btn" id="category-dropdown-btn">
+                            <span id="selected-categories">选择类别</span>
+                            <span class="dropdown-arrow">▼</span>
+                        </button>
+                        <div class="dropdown-menu" id="category-dropdown-menu">
+                            <div class="checkbox-option">
+                                <input type="checkbox" id="cat-action" value="动作">
+                                <label for="cat-action">动作</label>
+                            </div>
+                            <div class="checkbox-option">
+                                <input type="checkbox" id="cat-adventure" value="冒险">
+                                <label for="cat-adventure">冒险</label>
+                            </div>
+                            <div class="checkbox-option">
+                                <input type="checkbox" id="cat-puzzle" value="益智">
+                                <label for="cat-puzzle">益智</label>
+                            </div>
+                            <div class="checkbox-option">
+                                <input type="checkbox" id="cat-strategy" value="策略">
+                                <label for="cat-strategy">策略</label>
+                            </div>
+                            <div class="checkbox-option">
+                                <input type="checkbox" id="cat-shooting" value="射击">
+                                <label for="cat-shooting">射击</label>
+                            </div>
+                            <div class="checkbox-option">
+                                <input type="checkbox" id="cat-horror" value="恐怖">
+                                <label for="cat-horror">恐怖</label>
+                            </div>
+                            <div class="checkbox-option">
+                                <input type="checkbox" id="cat-simulation" value="模拟">
+                                <label for="cat-simulation">模拟</label>
+                            </div>
+                            <div class="checkbox-option">
+                                <input type="checkbox" id="cat-racing" value="竞速">
+                                <label for="cat-racing">竞速</label>
+                            </div>
+                            <div class="checkbox-option">
+                                <input type="checkbox" id="cat-physics" value="物理">
+                                <label for="cat-physics">物理</label>
+                            </div>
+                            <div class="checkbox-option">
+                                <input type="checkbox" id="cat-stealth" value="潜行">
+                                <label for="cat-stealth">潜行</label>
+                            </div>
+                            <div class="checkbox-option">
+                                <input type="checkbox" id="cat-collection" value="收集">
+                                <label for="cat-collection">收集</label>
+                            </div>
+                            <div class="checkbox-option">
+                                <input type="checkbox" id="cat-platform" value="平台">
+                                <label for="cat-platform">平台</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 名称搜索 -->
+                <div class="name-search">
+                    <label for="name-input">按名称搜索：</label>
+                    <input type="text" id="name-input" placeholder="输入游戏名称...">
+                </div>
+            </div>
+        </div>
+
+        <!-- 无结果消息 -->
+        <div class="no-results" id="no-results-message" style="display: none;">
+            <p>对不起，没有符合条件的游戏。</p>
+        </div>
+
         <!-- 游戏列表 -->
         <main class="games-content">
             <div class="games-grid">
                 <!-- 游戏卡片 1 - 曲睿爱猫 -->
-                <div class="game-card">
+                <div class="game-card" data-categories="动作,冒险,战斗,升级,收集">
                     <div class="game-image-container">
                         <img src="cool.png" alt="曲睿爱猫" class="game-image">
                     </div>
@@ -36,10 +144,17 @@
                     <button class="play-btn" onclick="window.location.href='game-intro.html'">
                         查看详情
                     </button>
+                    <div class="game-tags">
+                        <span class="tag">动作</span>
+                        <span class="tag">冒险</span>
+                        <span class="tag">战斗</span>
+                        <span class="tag">升级</span>
+                        <span class="tag">收集</span>
+                    </div>
                 </div>
 
                 <!-- 游戏卡片 2 - 复仇之猫 -->
-                <div class="game-card">
+                <div class="game-card" data-categories="动作,战斗,复仇">
                     <div class="game-image-container">
                         <img src="revenge.png" alt="复仇之猫" class="game-image">
                     </div>
@@ -48,10 +163,15 @@
                     <button class="play-btn" onclick="window.location.href='game-intro-revenge.html'">
                         查看详情
                     </button>
+                    <div class="game-tags">
+                        <span class="tag">动作</span>
+                        <span class="tag">战斗</span>
+                        <span class="tag">复仇</span>
+                    </div>
                 </div>
 
                 <!-- 游戏卡片 3 - 数学之猫 -->
-                <div class="game-card">
+                <div class="game-card" data-categories="益智,数学,记忆">
                     <div class="game-image-container">
                         <img src="number.png" alt="数学之猫" class="game-image">
                     </div>
@@ -60,10 +180,15 @@
                     <button class="play-btn" onclick="window.location.href='game-intro-number.html'">
                         查看详情
                     </button>
+                    <div class="game-tags">
+                        <span class="tag">益智</span>
+                        <span class="tag">数学</span>
+                        <span class="tag">记忆</span>
+                    </div>
                 </div>
 
                 <!-- 游戏卡片 4 - 像素之猫 -->
-                <div class="game-card">
+                <div class="game-card" data-categories="冒险,像素,探索">
                     <div class="game-image-container">
                         <img src="pixel.png" alt="像素之猫" class="game-image">
                     </div>
@@ -72,10 +197,15 @@
                     <button class="play-btn" onclick="window.location.href='game-intro-pixel.html'">
                         查看详情
                     </button>
+                    <div class="game-tags">
+                        <span class="tag">冒险</span>
+                        <span class="tag">像素</span>
+                        <span class="tag">探索</span>
+                    </div>
                 </div>
 
                 <!-- 游戏卡片 5 - 摇晃之猫 -->
-                <div class="game-card">
+                <div class="game-card" data-categories="物理,益智,收集">
                     <div class="game-image-container">
                         <img src="swing.png" alt="摇晃之猫" class="game-image">
                     </div>
@@ -84,10 +214,15 @@
                     <button class="play-btn" onclick="window.location.href='game-intro-swing.html'">
                         查看详情
                     </button>
+                    <div class="game-tags">
+                        <span class="tag">物理</span>
+                        <span class="tag">益智</span>
+                        <span class="tag">收集</span>
+                    </div>
                 </div>
 
                 <!-- 游戏卡片 6 - 直升机体验 -->
-                <div class="game-card">
+                <div class="game-card" data-categories="飞行,射击,动作">
                     <div class="game-image-container">
                         <img src="plane.png" alt="直升机体验" class="game-image">
                     </div>
@@ -96,10 +231,15 @@
                     <button class="play-btn" onclick="window.location.href='game-intro-plane.html'">
                         查看详情
                     </button>
+                    <div class="game-tags">
+                        <span class="tag">飞行</span>
+                        <span class="tag">射击</span>
+                        <span class="tag">动作</span>
+                    </div>
                 </div>
 
                 <!-- 游戏卡片 7 - 火球棋 -->
-                <div class="game-card">
+                <div class="game-card" data-categories="策略,回合制,魔法">
                     <div class="game-image-container">
                         <img src="chess.png" alt="火球棋" class="game-image">
                     </div>
@@ -108,10 +248,15 @@
                     <button class="play-btn" onclick="window.location.href='game-intro-chess.html'">
                         查看详情
                     </button>
+                    <div class="game-tags">
+                        <span class="tag">策略</span>
+                        <span class="tag">回合制</span>
+                        <span class="tag">魔法</span>
+                    </div>
                 </div>
 
                 <!-- 游戏卡片 8 - 猫咪团聚 -->
-                <div class="game-card">
+                <div class="game-card" data-categories="益智,寻找,猫咪">
                     <div class="game-image-container">
                         <img src="gather.png" alt="猫咪团聚" class="game-image">
                     </div>
@@ -120,10 +265,15 @@
                     <button class="play-btn" onclick="window.location.href='game-intro-gather.html'">
                         查看详情
                     </button>
+                    <div class="game-tags">
+                        <span class="tag">益智</span>
+                        <span class="tag">寻找</span>
+                        <span class="tag">猫咪</span>
+                    </div>
                 </div>
 
                 <!-- 游戏卡片 9 - 猫式扫雷 -->
-                <div class="game-card">
+                <div class="game-card" data-categories="益智,解谜,收集">
                     <div class="game-image-container">
                         <img src="block.png" alt="猫式扫雷" class="game-image">
                     </div>
@@ -132,10 +282,15 @@
                     <button class="play-btn" onclick="window.location.href='game-intro-block.html'">
                         查看详情
                     </button>
+                    <div class="game-tags">
+                        <span class="tag">益智</span>
+                        <span class="tag">解谜</span>
+                        <span class="tag">收集</span>
+                    </div>
                 </div>
 
                 <!-- 游戏卡片 10 - 天际猎杀 -->
-                <div class="game-card">
+                <div class="game-card" data-categories="射击,生存">
                     <div class="game-image-container">
                         <img src="war.png" alt="天际猎杀" class="game-image">
                     </div>
@@ -144,10 +299,14 @@
                     <button class="play-btn" onclick="window.location.href='game-intro-war.html'">
                         查看详情
                     </button>
+                    <div class="game-tags">
+                        <span class="tag">射击</span>
+                        <span class="tag">生存</span>
+                    </div>
                 </div>
 
                 <!-- 游戏卡片 11 - 找到钥匙 -->
-                <div class="game-card">
+                <div class="game-card" data-categories="恐怖,生存,探索">
                     <div class="game-image-container">
                         <img src="horror.png" alt="找到钥匙" class="game-image">
                     </div>
@@ -156,10 +315,15 @@
                     <button class="play-btn" onclick="window.location.href='game-intro-horror.html'">
                         查看详情
                     </button>
+                    <div class="game-tags">
+                        <span class="tag">恐怖</span>
+                        <span class="tag">生存</span>
+                        <span class="tag">探索</span>
+                    </div>
                 </div>
 
                 <!-- 游戏卡片 12 - 骰子大冒险 -->
-                <div class="game-card">
+                <div class="game-card" data-categories="冒险,战斗,策略">
                     <div class="game-image-container">
                         <img src="dice.png" alt="骰子大冒险" class="game-image">
                     </div>
@@ -168,10 +332,15 @@
                     <button class="play-btn" onclick="window.location.href='game-intro-dice.html'">
                         查看详情
                     </button>
+                    <div class="game-tags">
+                        <span class="tag">冒险</span>
+                        <span class="tag">战斗</span>
+                        <span class="tag">策略</span>
+                    </div>
                 </div>
 
                 <!-- 游戏卡片 13 - 猫兵突击 -->
-                <div class="game-card">
+                <div class="game-card" data-categories="潜行,收集,冒险">
                     <div class="game-image-container">
                         <img src="conquer.png" alt="猫兵突击" class="game-image">
                     </div>
@@ -180,10 +349,15 @@
                     <button class="play-btn" onclick="window.location.href='game-intro-conquer.html'">
                         查看详情
                     </button>
+                    <div class="game-tags">
+                        <span class="tag">潜行</span>
+                        <span class="tag">收集</span>
+                        <span class="tag">冒险</span>
+                    </div>
                 </div>
 
                 <!-- 游戏卡片 14 - 带走金币！ -->
-                <div class="game-card">
+                <div class="game-card" data-categories="益智,收集,时间限制">
                     <div class="game-image-container">
                         <img src="coin.jpeg" alt="带走金币！" class="game-image">
                     </div>
@@ -192,10 +366,15 @@
                     <button class="play-btn" onclick="window.location.href='game-intro-coin.html'">
                         查看详情
                     </button>
+                    <div class="game-tags">
+                        <span class="tag">益智</span>
+                        <span class="tag">收集</span>
+                        <span class="tag">时间限制</span>
+                    </div>
                 </div>
 
                 <!-- 游戏卡片 15 - 勇锋棋 -->
-                <div class="game-card">
+                <div class="game-card" data-categories="策略,回合制,战斗">
                     <div class="game-image-container">
                         <img src="brave.png" alt="勇锋棋" class="game-image">
                     </div>
@@ -204,10 +383,15 @@
                     <button class="play-btn" onclick="window.location.href='game-intro-brave.html'">
                         查看详情
                     </button>
+                    <div class="game-tags">
+                        <span class="tag">策略</span>
+                        <span class="tag">回合制</span>
+                        <span class="tag">战斗</span>
+                    </div>
                 </div>
 
                 <!-- 游戏卡片 16 - 卖鱼铺 -->
-                <div class="game-card">
+                <div class="game-card" data-categories="益智,计算,模拟">
                     <div class="game-image-container">
                         <img src="fish.png" alt="卖鱼铺" class="game-image">
                     </div>
@@ -216,10 +400,15 @@
                     <button class="play-btn" onclick="window.location.href='game-intro-fish.html'">
                         查看详情
                     </button>
+                    <div class="game-tags">
+                        <span class="tag">益智</span>
+                        <span class="tag">计算</span>
+                        <span class="tag">模拟</span>
+                    </div>
                 </div>
 
                 <!-- 游戏卡片 17 - 非牛顿猫 -->
-                <div class="game-card">
+                <div class="game-card" data-categories="益智,物理,解谜">
                     <div class="game-image-container">
                         <img src="newton.png" alt="非牛顿猫" class="game-image">
                     </div>
@@ -228,10 +417,15 @@
                     <button class="play-btn" onclick="window.location.href='game-intro-newton.html'">
                         查看详情
                     </button>
+                    <div class="game-tags">
+                        <span class="tag">益智</span>
+                        <span class="tag">物理</span>
+                        <span class="tag">解谜</span>
+                    </div>
                 </div>
 
                 <!-- 游戏卡片 18 - 笨猫村的灰烬 -->
-                <div class="game-card">
+                <div class="game-card" data-categories="模拟,资源管理,时间限制">
                     <div class="game-image-container">
                         <img src="ash.png" alt="笨猫村的灰烬" class="game-image">
                     </div>
@@ -240,10 +434,15 @@
                     <button class="play-btn" onclick="window.location.href='game-intro-ash.html'">
                         查看详情
                     </button>
+                    <div class="game-tags">
+                        <span class="tag">模拟</span>
+                        <span class="tag">资源管理</span>
+                        <span class="tag">时间限制</span>
+                    </div>
                 </div>
 
                 <!-- 游戏卡片 19 - 泡沫经济 -->
-                <div class="game-card">
+                <div class="game-card" data-categories="平台,冒险,物理">
                     <div class="game-image-container">
                         <img src="bubble.png" alt="泡沫经济" class="game-image">
                     </div>
@@ -252,10 +451,15 @@
                     <button class="play-btn" onclick="window.location.href='game-intro-bubble.html'">
                         查看详情
                     </button>
+                    <div class="game-tags">
+                        <span class="tag">平台</span>
+                        <span class="tag">冒险</span>
+                        <span class="tag">物理</span>
+                    </div>
                 </div>
 
                 <!-- 游戏卡片 20 - 夺命快线 -->
-                <div class="game-card">
+                <div class="game-card" data-categories="竞速,策略">
                     <div class="game-image-container">
                         <img src="fast.png" alt="夺命快线" class="game-image">
                     </div>
@@ -264,6 +468,10 @@
                     <button class="play-btn" onclick="window.location.href='game-intro-fast.html'">
                         查看详情
                     </button>
+                    <div class="game-tags">
+                        <span class="tag">竞速</span>
+                        <span class="tag">策略</span>
+                    </div>
                 </div>
             </div>
         </main>
@@ -275,6 +483,7 @@
         </footer>
     </div>
 
+    <script src="audio_data.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

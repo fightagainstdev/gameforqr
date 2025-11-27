@@ -10,6 +10,8 @@ document.addEventListener('DOMContentLoaded', function() {
     initializeCursorEffects();
     initializeMusicControl();
     initializeBackgroundSelector();
+    initializeGameSearch();
+    initializeMusicPlayer();
 });
 
 // 粒子效果初始化
@@ -616,4 +618,275 @@ function setBackground(bgType) {
 
     // 保存到本地存储
     localStorage.setItem('selectedBackground', bgType);
+}
+
+// 音乐播放器初始化
+function initializeMusicPlayer() {
+    const musicBtn = document.getElementById('music-btn');
+    const musicMenu = document.getElementById('music-menu');
+    const currentSongSpan = document.getElementById('current-song');
+    const playBtn = document.getElementById('play-btn');
+    const pauseBtn = document.getElementById('pause-btn');
+    const replayBtn = document.getElementById('replay-btn');
+    const musicOptions = document.querySelectorAll('.music-option');
+
+    if (!musicBtn || !musicMenu) {
+        return; // 如果不在有音乐播放器的页面，跳过初始化
+    }
+
+    let currentAudio = null;
+    let currentSong = null;
+
+    // 音乐下拉菜单切换
+    musicBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        musicMenu.classList.toggle('show');
+        this.classList.toggle('active');
+    });
+
+    // 点击其他地方关闭菜单
+    document.addEventListener('click', function(e) {
+        if (!musicBtn.contains(e.target) && !musicMenu.contains(e.target)) {
+            musicMenu.classList.remove('show');
+            musicBtn.classList.remove('active');
+        }
+    });
+
+    // 歌曲选择事件
+    musicOptions.forEach(option => {
+        option.addEventListener('click', function() {
+            const songName = this.getAttribute('data-name');
+            
+            // 更新当前歌曲显示
+            currentSongSpan.textContent = songName;
+            currentSong = songName;
+
+            // 更新UI状态
+            musicOptions.forEach(opt => opt.classList.remove('active'));
+            this.classList.add('active');
+
+            // 启用控制按钮
+            playBtn.disabled = false;
+            pauseBtn.disabled = false;
+            replayBtn.disabled = false;
+
+            // 关闭菜单
+            musicMenu.classList.remove('show');
+            musicBtn.classList.remove('active');
+
+            // 如果已经有音频在播放，停止它
+            if (currentAudio) {
+                currentAudio.pause();
+                currentAudio.currentTime = 0;
+            }
+
+            // 从Base64数据创建音频对象
+            try {
+                const base64Data = getAudioData(songName);
+                if (!base64Data) {
+                    throw new Error(`未找到歌曲数据: ${songName}`);
+                }
+                
+                // 创建音频对象
+                currentAudio = new Audio(`data:audio/mpeg;base64,${base64Data}`);
+                currentAudio.loop = false;
+                currentAudio.volume = 0.5;
+
+                // 音频加载错误处理
+                currentAudio.addEventListener('error', function() {
+                    console.error(`无法加载歌曲: ${songName}`);
+                    alert(`无法加载歌曲: ${songName}`);
+                    resetMusicControls();
+                });
+
+                // 音频播放结束事件
+                currentAudio.addEventListener('ended', function() {
+                    playBtn.disabled = false;
+                    pauseBtn.disabled = true;
+                });
+
+                console.log(`歌曲 ${songName} 已加载`);
+            } catch (error) {
+                console.error('创建音频对象失败:', error);
+                alert(`加载歌曲失败: ${error.message}`);
+                resetMusicControls();
+            }
+        });
+    });
+
+    // 播放按钮事件
+    playBtn.addEventListener('click', function() {
+        if (currentAudio && currentSong) {
+            currentAudio.play().then(() => {
+                playBtn.disabled = true;
+                pauseBtn.disabled = false;
+                replayBtn.disabled = false;
+            }).catch(error => {
+                console.error('播放失败:', error);
+                alert('播放失败，请检查音频文件');
+            });
+        }
+    });
+
+    // 暂停按钮事件
+    pauseBtn.addEventListener('click', function() {
+        if (currentAudio && !currentAudio.paused) {
+            currentAudio.pause();
+            playBtn.disabled = false;
+            pauseBtn.disabled = true;
+        }
+    });
+
+    // 重播按钮事件
+    replayBtn.addEventListener('click', function() {
+        if (currentAudio && currentSong) {
+            currentAudio.currentTime = 0;
+            currentAudio.play().then(() => {
+                playBtn.disabled = true;
+                pauseBtn.disabled = false;
+                replayBtn.disabled = false;
+            }).catch(error => {
+                console.error('重播失败:', error);
+                alert('重播失败，请检查音频文件');
+            });
+        }
+    });
+
+    // 重置音乐控制状态
+    function resetMusicControls() {
+        playBtn.disabled = true;
+        pauseBtn.disabled = true;
+        replayBtn.disabled = true;
+        currentSong = null;
+        currentAudio = null;
+        currentSongSpan.textContent = '选择歌曲';
+        musicOptions.forEach(opt => opt.classList.remove('active'));
+    }
+
+    // 页面可见性变化时处理音乐
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden && currentAudio && !currentAudio.paused) {
+            currentAudio.pause();
+        }
+    });
+}
+
+// 游戏搜索初始化
+function initializeGameSearch() {
+    const categoryDropdownBtn = document.getElementById('category-dropdown-btn');
+    const categoryDropdownMenu = document.getElementById('category-dropdown-menu');
+    const selectedCategoriesSpan = document.getElementById('selected-categories');
+    const nameInput = document.getElementById('name-input');
+    const checkboxes = document.querySelectorAll('#category-dropdown-menu input[type="checkbox"]');
+
+    if (!categoryDropdownBtn || !categoryDropdownMenu || !selectedCategoriesSpan || !nameInput) {
+        return; // 如果不在游戏页面，跳过初始化
+    }
+
+    // 类别下拉菜单切换
+    categoryDropdownBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        categoryDropdownMenu.classList.toggle('show');
+        this.classList.toggle('active');
+    });
+
+    // 点击其他地方关闭菜单
+    document.addEventListener('click', function(e) {
+        if (!categoryDropdownBtn.contains(e.target) && !categoryDropdownMenu.contains(e.target)) {
+            categoryDropdownMenu.classList.remove('show');
+            categoryDropdownBtn.classList.remove('active');
+        }
+    });
+
+    // 复选框变化事件
+    checkboxes.forEach(checkbox => {
+        checkbox.addEventListener('change', function() {
+            updateSelectedCategoriesDisplay(selectedCategoriesSpan, checkboxes);
+            filterGames();
+        });
+    });
+
+    // 名称输入事件
+    nameInput.addEventListener('input', function() {
+        filterGames();
+    });
+
+    // 搜索模式切换事件
+    const modeRadios = document.querySelectorAll('input[name="search-mode"]');
+    modeRadios.forEach(radio => {
+        radio.addEventListener('change', function() {
+            filterGames();
+        });
+    });
+}
+
+// 更新选中类别显示
+function updateSelectedCategoriesDisplay(span, checkboxes) {
+    const selected = Array.from(checkboxes)
+        .filter(cb => cb.checked)
+        .map(cb => cb.value);
+
+    if (selected.length === 0) {
+        span.textContent = '选择类别';
+    } else if (selected.length === 1) {
+        span.textContent = selected[0];
+    } else {
+        span.textContent = `${selected[0]} 等${selected.length}个`;
+    }
+}
+
+// 过滤游戏
+function filterGames() {
+    const nameInput = document.getElementById('name-input');
+    const checkboxes = document.querySelectorAll('#category-dropdown-menu input[type="checkbox"]');
+    const gameCards = document.querySelectorAll('.game-card');
+    const noResultsMessage = document.getElementById('no-results-message');
+    const searchMode = document.querySelector('input[name="search-mode"]:checked').value;
+
+    const nameQuery = nameInput.value.toLowerCase().trim();
+    const selectedCategories = Array.from(checkboxes)
+        .filter(cb => cb.checked)
+        .map(cb => cb.value);
+
+    let visibleCount = 0;
+
+    gameCards.forEach(card => {
+        const gameName = card.querySelector('.game-name').textContent.toLowerCase();
+        const gameCategories = card.getAttribute('data-categories') ?
+            card.getAttribute('data-categories').split(',') : [];
+
+        // 检查名称匹配
+        const nameMatch = !nameQuery || gameName.includes(nameQuery);
+
+        // 检查类别匹配 - 根据搜索模式
+        let categoryMatch;
+        if (selectedCategories.length === 0) {
+            categoryMatch = true; // 没有选择类别时显示所有游戏
+        } else if (searchMode === 'and') {
+            // 叠加模式：游戏必须包含所有选中的类别
+            categoryMatch = selectedCategories.every(cat =>
+                gameCategories.includes(cat.trim())
+            );
+        } else {
+            // 全部模式：游戏只要包含任意一个选中的类别
+            categoryMatch = selectedCategories.some(cat =>
+                gameCategories.includes(cat.trim())
+            );
+        }
+
+        // 显示或隐藏卡片
+        if (nameMatch && categoryMatch) {
+            card.style.display = '';
+            visibleCount++;
+        } else {
+            card.style.display = 'none';
+        }
+    });
+
+    // 显示或隐藏无结果消息
+    if (visibleCount === 0) {
+        noResultsMessage.style.display = 'block';
+    } else {
+        noResultsMessage.style.display = 'none';
+    }
 }

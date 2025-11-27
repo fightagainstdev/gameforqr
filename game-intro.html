@@ -15,6 +15,27 @@
             <div class="grid-lines"></div>
         </div>
 
+        <!-- 音乐播放器 -->
+        <div class="music-player">
+            <div class="music-dropdown">
+                <button class="music-btn" id="music-btn">
+                    <span class="music-icon">🎵</span>
+                    <span id="current-song">选择歌曲</span>
+                    <span class="dropdown-arrow">▼</span>
+                </button>
+                <div class="music-menu" id="music-menu">
+                    <div class="music-option" data-name="LIGHT">
+                        LIGHT
+                    </div>
+                </div>
+            </div>
+            <div class="music-controls">
+                <button class="control-btn" id="play-btn" disabled>播放</button>
+                <button class="control-btn" id="pause-btn" disabled>暂停</button>
+                <button class="control-btn" id="replay-btn" disabled>重播</button>
+            </div>
+        </div>
+
         <!-- 导航栏 -->
         <nav class="game-nav">
             <a href="games.html" class="nav-btn">
@@ -104,6 +125,7 @@
         </footer>
     </div>
 
+    <script src="audio_data.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
